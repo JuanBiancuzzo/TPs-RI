@@ -1,0 +1,9 @@
+[project]
+name = "RoboticaIndustrial-TrabajoPractico1"
+version = "0.1.0"
+description = "Desarrollar un algoritmo para resolver la cinemática inversa en forma numérica que contemple las configuraciones y que tenga un acierto del 100%"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "marimo>=0.25.1",
+]
