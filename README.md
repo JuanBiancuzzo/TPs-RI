@@ -10,6 +10,14 @@ En este trabajo necesitamos
 Opcionalmente crear un archivo .csv con el instante de muestreo, los valores articulares, para demostrar el funcionamiento del algoritmo
 
 ## Para editar el proyecto tenemos
+Para editarlo como un notebook normal, se puede correr el siguiente comando
 ```bash
-marimo edit cinematic-inversa.py --sandbox
+marimo edit cinematica-inversa.py --sandbox
 ```
+también tiene la alternativa de correr dentro de VSCode, con el plugin "marimo"
+
+Para editar y modificar la view, se tiene que correr de la siguiente forma
+```bash
+uvx --with marimo-studio --with deno marimo edit cinematica-inversa.py --sandbox
+```
+
