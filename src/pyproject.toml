@@ -1,0 +1,8 @@
+[project]
+name = "cinematica-inversa-numerica"
+version = "0.1.0"
+description = "Creando un algoritmo de cinemática inversa de forma numérica la cual permita (con información extra) conseguir un 100% de acierto"
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.5.4",
+]
