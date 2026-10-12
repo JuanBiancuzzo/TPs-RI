@@ -3,9 +3,6 @@ name: Subir informes
 on:
   workflow_dispatch:
 
-env:
-  NOMBRE-GRUPO: Grupo2
-
 permissions:
   contents: write
 
@@ -17,7 +14,7 @@ jobs:
         rama: [teorica/tp1]
         include:
           - rama: teorica/tp1
-            nombre: TP1
+            nombre: TP1-Teorico
     steps:
       - name: Conseguir repo en la rama correspondiente
         uses: actions/checkout@v4
@@ -30,13 +27,13 @@ jobs:
         with:
           image: juanbiancuzzo/latex:latest
           options: -v ${{ github.workspace }}/informe:/latex
-          run: sh -c "/scripts/compile.sh && cp /latex/main.pdf /latex/${{ matrix.nombre }}-${{ env.NOMBRE-GRUPO }}.pdf"
+          run: sh -c "/scripts/compile.sh && cp /latex/main.pdf /latex/${{ matrix.nombre }}.pdf"
 
       - name: Subir pdf a github artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.nombre }}
-          path: ${{ github.workspace }}/informe/${{ matrix.nombre }}-${{ env.NOMBRE-GRUPO }}.pdf
+          path: ${{ github.workspace }}/informe/${{ matrix.nombre }}.pdf
           if-no-files-found: warn
 
   release:
