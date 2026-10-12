@@ -1,0 +1,174 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage[a4paper,headheight=43pt,
+            scale={0.8,0.8},hoffset=0.5cm,voffset=1cm]{geometry}
+
+\usepackage{verbatim}
+\usepackage{comment}
+
+% paquetes matemáticos básicos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{siunitx}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+% tikz
+\usepackage{tikz}
+
+% Código
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% gráficos
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{listings}
+\captionsetup[table]{font={small,sc},labelfont={small,sc}}
+
+\usepackage[subrefformat=parens]{subcaption} % para colocar subfiguras con sus
+                                             % respectivas referencias,
+                                             % subrefformat es para que ponga
+                                             % parentesis en las subref
+
+\usepackage{appendix}
+\usepackage[output-decimal-marker={,},per-mode=symbol-or-fraction,retain-unity-mantissa=true,detect-all,range-phrase={ -- },list-final-separator={ y }]{siunitx}
+%output-decimal-marker define el separador decimal que se imprime
+%per-mode define la forma que se utiliza para mostrar las unidades del denominador, en este caso elije segun el modo matematico que usa
+%retain-unity-mantissa define si muestra o no la mantisa cuando es 1
+%detect-all detecta la fuente que corresponde al entorno donde se colocan las unidades
+%range-phrase define la palabra para los rangos de numeros
+%list-final-separator define la palabra final de las listas
+
+% paquete para insertar hipervínculos (sólo para el encabezado)
+\usepackage[colorlinks=true,urlcolor=blue,
+            linkcolor=black,linktoc=none,citecolor=black]{hyperref}
+
+\usepackage[twoside]{fancyhdr}		% formato de página
+\usepackage{lastpage}
+% Configuración del encabezado y pie de página
+\fancyhf{} % Limpia todos los campos de encabezado y pie de página
+%\fancyhead[L]{\textbf{TB070 Dispositivos Semiconductores}}
+\fancyfoot{} % Limpia el pie de página para personalizarlo a continuación
+
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+
+%*** redefino el comportamiento de los apendices
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+%\renewcommand{\tablename}{Tabla}
+%\renewcommand\spanishtablename{Tabla}
+%\renewcommand{\figurename}{Figura}
+%***
+\pagestyle{fancy}
+
+\usepackage[dvipsnames]{xcolor}
+%\usepackage{todonotes}		% ToDo List
+\usepackage{hyperref}		% formato de página
+\usepackage{tcolorbox}
+
+\DeclareSIUnit\angstrom{\text {Å}}
+
+% \newif\ifturnotarde
+% %     \turnotardetrue
+% \newif\ifturnonoche
+%     \turnonochetrue
+
+\begin{document}
+
+% Defino el formato del encabezado
+%\pagestyle{fancy}
+% \lhead{\includegraphics[width=0.3\textwidth]{lhead}}
+% \chead{
+%   {\scshape Dispositivos Semiconductores}\\
+%   {\footnotesize 1\textsuperscript{er} cuatrimestre de 2023}
+% }
+%\rhead{\includegraphics[width=0.1\textwidth]{rhead}}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+    \includegraphics[scale=0.3]{fiuba.pdf}\\
+    \large{\textsc{Universidad de Buenos Aires}}\\
+    \large{\textsc{Facultad de Ingeniería}}\\
+    % Modificar año y cuatrimestre
+    \small{Año 2026 - 2\textsuperscript{do} cuatrimestre}
+\end{center}
+
+\vfill
+% Redefino la numeracion de las subsecciones
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\begin{center}
+	{\LARGE \underline{\textbf{Robótica industrial (TA155)}}}\\[0.5cm]
+	{\LARGE \textbf{Trabajo Práctico 1 - Memoria Técnica:}}\\[0.5cm] 
+    {\LARGE \textbf{Cinemática de Robots}}\\[0.5cm]
+\end{center}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Integrantes}}    \\ \hline
+    \multicolumn{1}{|l|}{Nombre y Apellido} & Padrón & Correo \\ \hline
+    \multicolumn{1}{|l|}{Juan Ignacio Biancuzzo}    & 106005 & jbiancuzzo@fi.uba.ar \\ \hline
+    \multicolumn{1}{|l|}{Rocio Nicole Heredia Piñon}   & 107621 & rherediap@fi.uba.ar \\ \hline
+    \end{tabular}
+\end{table}
+
+\vfill
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+\begin{comment}    
+\end{comment}
+
+
+\section{Referencias}
+\renewcommand{\section}[2]{}
+\bibliographystyle{IEEEtran}
+\bibliography{referencias.bib}
+
+\end{document}
