@@ -9,15 +9,20 @@ En este trabajo necesitamos
 
 Opcionalmente crear un archivo .csv con el instante de muestreo, los valores articulares, para demostrar el funcionamiento del algoritmo
 
-## Para editar el proyecto tenemos
-Para editarlo como un notebook normal, se puede correr el siguiente comando
-```bash
-marimo edit cinematica-inversa.py --sandbox
-```
-también tiene la alternativa de correr dentro de VSCode, con el plugin "marimo"
+## Archivos
+El programa esta hecho en un notebook de python (`.ipynb`) donde integra el uso de uv para las dependencias del proyecto
 
-Para editar y modificar la view, se tiene que correr de la siguiente forma
+## Para la presentación
+Se encuentra un proyecto de Motion Canvas, para correrlo solo se necesita: 
 ```bash
-uvx --with marimo-studio --with deno marimo edit cinematica-inversa.py --sandbox
+cd presentacion
+npm start
+```
+Este abre un puerto en `http://localhost:9000/`, ahí se puede ver la pestaña de "Video settings" y clickeando en el dropdown de Render/Present se puede poner modo presentación
+
+## Para la memoria tecnica
+Se encuentra un proyecto de Latex, para compilarlo se puede usar el contenedor de Docker que permite no instalar nada más alla de Docker
+```bash
+docker run --mount type=bind,source=./informe,target=/latex juanbiancuzzo/latex:latest 1>/dev/null
 ```
 
