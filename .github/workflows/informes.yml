@@ -1,0 +1,56 @@
+name: Subir informes
+
+on:
+  workflow_dispatch:
+
+env:
+  NOMBRE-GRUPO: Grupo2
+
+permissions:
+  contents: write
+
+jobs:
+  informes:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rama: [teorica/tp1]
+        include:
+          - rama: teorica/tp1
+            nombre: TP1
+    steps:
+      - name: Conseguir repo en la rama correspondiente
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.rama }}
+
+      - name: Crear el pdf
+        uses: addnab/docker-run-action@v3
+        timeout-minutes: 5
+        with:
+          image: juanbiancuzzo/latex:latest
+          options: -v ${{ github.workspace }}/informe:/latex
+          run: sh -c "/scripts/compile.sh && cp /latex/main.pdf /latex/${{ matrix.nombre }}-${{ env.NOMBRE-GRUPO }}.pdf"
+
+      - name: Subir pdf a github artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.nombre }}
+          path: ${{ github.workspace }}/informe/${{ matrix.nombre }}-${{ env.NOMBRE-GRUPO }}.pdf
+          if-no-files-found: warn
+
+  release:
+    needs: informes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar artifact de los pdfs
+        uses: actions/download-artifact@v4
+
+      - name: Subir artifact como release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: informe
+          name: "Release informe"
+          files: |
+            **/*.pdf
