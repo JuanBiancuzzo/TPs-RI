@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        rama: [teorica/tp1]
+        rama: [teorica/tp1, practica/tp2]
         include:
           - rama: teorica/tp1
             nombre: TP1-Teorico
+          - rama: practica/tp2
+            nombre: TP2-Practico
     steps:
       - name: Conseguir repo en la rama correspondiente
         uses: actions/checkout@v4
