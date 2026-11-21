@@ -8,3 +8,4 @@ En esta sección se muestran las ramas en las cuales se desarrolla los trabajos 
 ## Trabajos prácticos de la Práctica
 En esta seccións se muestran las rama en las cuales se desarrolla los trabajos prácticos dado por la práctica
  * [Trabajo Práctico de Laboratorio 1 - Programación estructurada](https://github.com/JuanBiancuzzo/TPs-RI/tree/practica/tp1)
+ * [Trabajo Práctico de Laboratorio 2 - Paletizado](https://github.com/JuanBiancuzzo/TPs-RI/tree/practica/tp2) - [Informe](https://github.com/JuanBiancuzzo/TPs-RI/releases/download/informe/TP2-Practico.pdf)
