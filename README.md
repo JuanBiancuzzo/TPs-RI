@@ -1,11 +1,8 @@
-# Tps Robótica Industrial
-Este repositorio contendrá todo el desarrollo de los trabajos prácticos en la cursada de 2C2026 de Robótica Industrial
+# Trabajo práctico 2 - Paletizado
+Para este trabajo se tendrá todos los archivos creados con el objetivo de:
+ * Ejercitar la programación estructurada.
+ * Simular/Diseñar celdas robotizadas tı́picas simples usando RobotStudio.
+ * Familiarizarse con las particularidades del paletizado con robots.
+ * Entender las dificultades de llevar robotización simulada a celdas reales.
 
-## Trabajos prácticos de la Teórica
-En esta sección se muestran las ramas en las cuales se desarrolla los trabajos prácticos dado por la teoría
- * [Trabajo Práctico 1 - Cinemática de Robots](https://github.com/JuanBiancuzzo/TPs-RI/tree/teorica/tp1) - [Informe](https://github.com/JuanBiancuzzo/TPs-RI/releases/download/informe/TP1-Teorico.pdf)
-
-## Trabajos prácticos de la Práctica
-En esta seccións se muestran las rama en las cuales se desarrolla los trabajos prácticos dado por la práctica
- * [Trabajo Práctico de Laboratorio 1 - Programación estructurada](https://github.com/JuanBiancuzzo/TPs-RI/tree/practica/tp1)
- * [Trabajo Práctico de Laboratorio 2 - Paletizado](https://github.com/JuanBiancuzzo/TPs-RI/tree/practica/tp2) - [Informe](https://github.com/JuanBiancuzzo/TPs-RI/releases/download/informe/TP2-Practico.pdf)
+Se tiene un archivo de Pack&Go de RobotStudio, un [informe](https://github.com/JuanBiancuzzo/TPs-RI/releases/download/informe/TP2-Practico.pdf), y videos ejecutando los procedimientos en la siguiente carpeta de drive

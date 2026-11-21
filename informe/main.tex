@@ -1,0 +1,121 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+
+\usepackage[a4paper,headheight=43pt,
+            scale={0.8,0.8},hoffset=0.5cm,voffset=1cm]{geometry}
+
+\usepackage{fancyhdr}		% formato de página
+
+% paquetes matemáticos básicos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{listings}
+
+% gráficos
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+
+\usepackage[subrefformat=parens]{subcaption} % para colocar subfiguras con sus
+                                             % respectivas referencias,
+                                             % subrefformat es para que ponga
+                                             % parentesis en las subref
+
+\usepackage{appendix}
+\usepackage[output-decimal-marker={,},per-mode=symbol-or-fraction,retain-unity-mantissa=true,detect-all,range-phrase={ -- },list-final-separator={ y }]{siunitx}
+%output-decimal-marker define el separador decimal que se imprime
+%per-mode define la forma que se utiliza para mostrar las unidades del denominador, en este caso elije segun el modo matematico que usa
+%retain-unity-mantissa define si muestra o no la mantisa cuando es 1
+%detect-all detecta la fuente que corresponde al entorno donde se colocan las unidades
+%range-phrase define la palabra para los rangos de numeros
+%list-final-separator define la palabra final de las listas
+
+% paquete para insertar hipervínculos (sólo para el encabezado)
+\usepackage[colorlinks=true,urlcolor=blue,
+            linkcolor=black,linktoc=none,citecolor=black]{hyperref}
+
+
+\usepackage[dvipsnames]{xcolor}
+%\usepackage{todonotes}		% ToDo List
+\usepackage{hyperref}		% formato de página
+\usepackage{tcolorbox}
+
+\usepackage{tikz}
+\usetikzlibrary {arrows.meta}
+\usetikzlibrary{math}
+\usetikzlibrary{calc}
+
+\usepackage[acronym]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{fiuba.pdf}
+\end{figure}
+
+\begin{center}
+	{\LARGE \underline{\textbf{Robótica industrial (TA155)}}}\\[0.5cm]
+	{\LARGE \textbf{Trabajo Práctico de Laboratorio N°2}}\\[0.5cm]
+        {\LARGE \textbf{Paletizado}}\\[0.5cm]
+    {\normalsize \textbf{2°C 2026}}\\[.25cm]
+\end{center}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{Integrantes}}    \\ \hline
+    \multicolumn{1}{|l|}{Nombre y Apellido} & Padrón & Correo \\ \hline
+    \multicolumn{1}{|l|}{Juan Ignacio Biancuzzo}    & 106005 & jbiancuzzo@fi.uba.ar \\ \hline
+    \multicolumn{1}{|l|}{Rocio Nicole Heredia Piñon}   & 107621 & rherediap@fi.uba.ar \\ \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+
+\section{Preguntas a responder}
+
+\begin{center}
+    \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
+        \centering
+        ¿Qué verificaciones/ajustes/calibraciones deberían realizarse durante la puesta en marcha?
+    \end{tcolorbox}
+\end{center}
+
+
+\begin{center}
+    \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
+        \centering
+        Sin no se logra paletizar lo suficientemente rápido, ¿Qué modificaciones podría aplicar al diseño de la estación?
+    \end{tcolorbox}
+\end{center}
+
+\begin{center}
+    \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
+        \centering
+        Considerando la seguridad para una aplicación industrial, ¿Qué modificaciones sugiere implementar?
+    \end{tcolorbox}
+\end{center}
+
+\begin{center}
+    \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
+        \centering
+        El robot de la estación es un IRB140 y tiene $6$ ejes, ¿Es el más indicado para tareas de paletizado?
+    \end{tcolorbox}
+\end{center}
+
+\end{document}
