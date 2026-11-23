@@ -87,8 +87,6 @@
 
 \newpage
 
-\section{Preguntas a responder}
-
 \begin{center}
     \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
         \centering
@@ -96,20 +94,49 @@
     \end{tcolorbox}
 \end{center}
 
+Se debería verificar que la distribución de la estación, que en este caso corresponde al pick y al place, se encuentren dentro del rango de alcanzabilidad del robot. Como también que no existen elementos no contemplados en la estación en el camino de robot. Por el lado del operario, se tendría que verificar que el modo de operación sea el manual, y con velocidad reducida para los ajustes que se mencionarán a continuación.
+
+Se debería ajustar que las ternas correspondientes a el pick y place estén en la posición y la configuración adecuada. Ajustar las dimensiones de la herramienta para la terna referida al tool$0$. Por último, se propone ajustar las poses intermedias de forma conveniente según el movimiento del robot, sin interferir con la estación. 
 
 \begin{center}
     \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
         \centering
-        Sin no se logra paletizar lo suficientemente rápido, ¿Qué modificaciones podría aplicar al diseño de la estación?
+        Si no se logra paletizar lo suficientemente rápido, ¿qué modificaciones podría aplicar al diseño de la estación?
     \end{tcolorbox}
 \end{center}
+
+Se buscaría reducir las distancias entre las cajas de su punto de pick up, y el place, evitando una distancia mínima en la que el robot llegue a sus límites de movimiento.
+
+Se podría lograr acelerar la tarea de paletizado modificando la herramienta utilizada. La ventosa permite agarrar de a una caja pero si se lograra agarrar más de una caja a la vez y ya acercarlas al place, podría ahorrarse tiempo en el viaje desde el pick hacia el place. 
+
+También existe la posibilidad de cambiar el robot utilizado, uno con solo $4$ grados de libertad, y que permita tener una mayor velocidad en los ejes que tiene.
 
 \begin{center}
     \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
         \centering
-        Considerando la seguridad para una aplicación industrial, ¿Qué modificaciones sugiere implementar?
+        Considerando la seguridad para una aplicación industrial, ¿qué modificaciones sugiere implementar?
     \end{tcolorbox}
 \end{center}
+
+\begin{itemize}
+    \item Paradas de emergencia: requiere una acción voluntaria para volver a la máquina a su condición de seguridad lo más rápido posible. Una vez que se acciona, se bloquea. No puede utilizarse como parada normal del robot. Es importante que se usen dispositivos de bloqueo cuando se trabaja en la zona de peligro para evitar que un tercero vuelva a poner la máquina en funcionamiento. 
+    
+    \item Modo manual y modo automático: sería necesario para la situación en la cual un operario tenga que modificar algún parámetro de la programación. En el uso manual, se necesitaría el uso de un dead man's switch para asegurar que tiene la capacidad de frenar el robot en el caso de que ocurra una situación que ponga en peligro al operario.  
+    
+    \item Resguardos: es un medio material de protección, como una barrera física, que  impide o restringe el acceso a zonas peligrosas. 
+    
+    \item Dispositivos de seguridad:  
+    \begin{itemize}
+        \item Mando a dos manos: permite que una máquina opere solo cuando el trabajador tenga ambos pulsadores accionados, que implican utilizar ambas manos y por ende estar fuera del área de peligro.  
+        \item Área sensible (Scanner Laser, y por presión): se utilizan para detectar si una persona ingresa a la zona de peligro, o permanece en ella, lo cual sería motivo para llevar a la máquina a su condición de seguridad. 
+        \item Safe Drive: detiene el movimiento si detecta que sus parámetros como los ángulos de sus motores, la corriente para los motores, las variables de estado del controlador, difieren lo suficiente de lo esperado. 
+    \end{itemize}
+    
+    \item Distancia de seguridad: es la distancia mínima dada por la velocidad en la que un operario puede ponerse en peligro y el tiempo de reacción del sistema. Este último sería el tiempo desde que se reconoce un peligro, por ejemplo por medio de un scanner laser, hasta que el robot frena por completo.
+    
+    \item Conexión de interruptores en serie: es el encadenamiento de todos los dispositivos de reconocimiento del peligro, el cual permitiría interrumpir el movimiento del robot por cualquiera de las señales.
+    
+\end{itemize}
 
 \begin{center}
     \begin{tcolorbox}[colback=blue!10,colframe=blue!50!black]
@@ -117,5 +144,9 @@
         El robot de la estación es un IRB140 y tiene $6$ ejes, ¿Es el más indicado para tareas de paletizado?
     \end{tcolorbox}
 \end{center}
+
+Los grados de libertad para esta tarea particular son $4$, donde $3$ son de traslación y $1$ de rotación correspondiente al Yaw. Al utilizar un robot de $6$ ejes, se tienen $2$ grados de libertad extra, dados por la orientación Pitch y Roll. 
+
+Existe la posibilidad de aprovechar esta redundancia, por ejemplo maximizando la manipulabilidad. Pero si esto no es deseado, el robot más indicado debería tener $4$ ejes.   
 
 \end{document}
